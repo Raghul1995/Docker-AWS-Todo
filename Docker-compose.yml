@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  backend:
+    build: ./backend
+    image: public.ecr.aws/j1q7g9h7/todo:backend-latest
+    ports:
+      - "3001:3001"
+
+  frontend:
+    build: ./frontend-1
+    image: public.ecr.aws/j1q7g9h7/todo:frontend-latest
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend

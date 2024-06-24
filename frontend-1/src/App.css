@@ -1,0 +1,17 @@
+.App {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.todo-form {
+  margin-bottom: 20px;
+}
+
+.todo-form input {
+  margin-right: 10px;
+}
+
+.completed {
+  text-decoration: line-through;
+  cursor: pointer;
+}
