@@ -1,16 +1,15 @@
 version: '3'
-
 services:
-  backend:
-    build: ./backend
-    image: public.ecr.aws/j1q7g9h7/todo:backend-latest
+  todo-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "3001:3001"
+      - "3000:3000"
+    volumes:
+      - todo-data:/app/data
+    environment:
+      - NODE_ENV=production
 
-  frontend:
-    build: ./frontend-1
-    image: public.ecr.aws/j1q7g9h7/todo:frontend-latest
-    ports:
-      - "3000:80"
-    depends_on:
-      - backend
+volumes:
+  todo-data:
